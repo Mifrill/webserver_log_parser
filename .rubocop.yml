@@ -6,6 +6,8 @@ AllCops:
   NewCops: enable
   Exclude:
     - db/**/*
+    - vendor/**/*.rb
+    - vendor/bundle/**/*
 Style/Documentation:
   Enabled: false
 Style/FrozenStringLiteralComment:
