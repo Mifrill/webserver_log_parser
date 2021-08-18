@@ -21,12 +21,10 @@ describe WebserverLogParser::Presenter::App do
 
   describe '#call' do
     it 'prints proper output' do
-      expect(console_klass).to receive(:new).with(rows: rows, text: 'visit').once.and_return(console)
-      expect(console).to receive(:call).with(no_args).once
-      expect(console_klass).to receive(:new).with(rows: rows2, text: 'unique view').once.and_return(console)
-      expect(console).to receive(:call).with(no_args).once
-      expect(console_klass).to receive(:new).with(rows: rows3, text: 'average view').once.and_return(console)
-      expect(console).to receive(:call).with(no_args).once
+      expect(console_klass).to receive(:new).once.and_return(console)
+      expect(console).to receive(:call).with(rows: rows, text: 'visit').once
+      expect(console).to receive(:call).with(rows: rows2, text: 'unique view').once
+      expect(console).to receive(:call).with(rows: rows3, text: 'average view').once
       presenter.call(data)
     end
   end
