@@ -9,18 +9,11 @@ module WebserverLogParser
 
       def call(data)
         total_pages_views, unique_pages_views, average_pages_views = *data
-        output_klass.new(
-          rows: total_pages_views,
-          text: 'visit'
-        ).call
-        output_klass.new(
-          rows: unique_pages_views,
-          text: 'unique view'
-        ).call
-        output_klass.new(
-          rows: average_pages_views,
-          text: 'average view'
-        ).call
+        {
+          total_pages_views => 'visit',
+          unique_pages_views => 'unique view',
+          average_pages_views => 'average view'
+        }.each { |rows, text| output_klass.new(rows: rows, text: text).call }
       end
 
       private
