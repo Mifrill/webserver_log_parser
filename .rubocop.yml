@@ -15,12 +15,12 @@ Style/FrozenStringLiteralComment:
 Metrics/BlockLength:
   Max: 125
 RSpec/MultipleExpectations:
-  Max: 5
+  Max: 10
 RSpec/MessageSpies:
   EnforcedStyle: receive
 Rails/Output:
   Enabled: false
 RSpec/ExampleLength:
-  Max: 10
+  Max: 15
 RSpec/NestedGroups:
   Max: 4
