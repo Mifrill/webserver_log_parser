@@ -6,7 +6,7 @@ module WebserverLogParser
           [
             total_pages_views(scope),
             unique_pages_views(scope),
-            average_page_views(scope)
+            average_pages_views(scope)
           ]
         )
       end
@@ -21,8 +21,8 @@ module WebserverLogParser
         scope.unique_pages_views.order_by_most_views.to_a
       end
 
-      def average_page_views(scope)
-        scope.average_page_views.order_by_most_views.to_a
+      def average_pages_views(scope)
+        scope.average_pages_views.order_by_most_views.to_a
       end
     end
   end

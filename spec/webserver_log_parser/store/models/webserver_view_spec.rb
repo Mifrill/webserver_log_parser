@@ -129,7 +129,7 @@ describe WebserverLogParser::Store::Models::WebserverView do
     pending('simplecov shows 100% with no validation checks | use https://github.com/mbj/mutant')
   end
 
-  describe '.average_page_views average number of page views' do
+  describe '.average_pages_views average number of page views' do
     before do
       described_class.create(route: '/home', ip: '126.318.035.000')
       described_class.create(route: '/home', ip: '126.318.035.000')
@@ -137,7 +137,7 @@ describe WebserverLogParser::Store::Models::WebserverView do
     end
 
     it 'returns grouped rows ' do
-      expect(described_class.average_page_views.to_a.map(&:values))
+      expect(described_class.average_pages_views.to_a.map(&:values))
         .to match_array(
           [
             { route: '/home', count: 1.5 }

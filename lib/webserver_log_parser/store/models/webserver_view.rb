@@ -13,7 +13,7 @@ module WebserverLogParser
             end
           end
 
-          def average_page_views
+          def average_pages_views
             group(:route).select do |row|
               [:route, (row.count(:ip) / row.count(:ip).distinct.cast(Float)).as(:count)]
             end
