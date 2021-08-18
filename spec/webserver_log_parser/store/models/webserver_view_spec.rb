@@ -136,7 +136,7 @@ describe WebserverLogParser::Store::Models::WebserverView do
       described_class.create(route: '/home', ip: '126.318.035.001')
     end
 
-    it 'returns grouped rows ' do
+    it 'returns grouped rows with average number of page views' do
       expect(described_class.average_pages_views.to_a.map(&:values))
         .to match_array(
           [
