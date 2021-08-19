@@ -50,8 +50,7 @@ e.g.:
 /home 90 visits 
 /index 80 visits
  etc... 
-> list of webpages with most
-unique page views also ordered
+> list of webpages with most unique page views also ordered
 e.g.:
 /about/2 8 unique views
 /index 5 unique views
