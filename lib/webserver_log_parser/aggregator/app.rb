@@ -5,7 +5,8 @@ module WebserverLogParser
         yield(
           [
             total_pages_views(scope),
-            unique_pages_views(scope)
+            unique_pages_views(scope),
+            average_pages_views(scope)
           ]
         )
       end
@@ -18,6 +19,10 @@ module WebserverLogParser
 
       def unique_pages_views(scope)
         scope.unique_pages_views.order_by_most_views.to_a
+      end
+
+      def average_pages_views(scope)
+        scope.average_pages_views.order_by_most_views.to_a
       end
     end
   end

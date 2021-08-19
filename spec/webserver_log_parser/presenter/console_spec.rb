@@ -2,7 +2,7 @@ require 'webserver_log_parser/presenter/console'
 
 describe WebserverLogParser::Presenter::Console do
   subject(:console) do
-    described_class.new(rows: rows, text: 'item')
+    described_class.new
   end
 
   let(:rows) do
@@ -14,7 +14,7 @@ describe WebserverLogParser::Presenter::Console do
   describe '#call' do
     it 'prints proper output' do
       expect($stdout).to receive(:puts).with('test-route 1 item').once
-      console.call
+      console.call(rows: rows, text: 'item')
     end
 
     context 'when few rows' do
@@ -28,7 +28,7 @@ describe WebserverLogParser::Presenter::Console do
       it 'prints proper output for each row' do
         expect($stdout).to receive(:puts).with('test-route-1 1 item').once
         expect($stdout).to receive(:puts).with('test-route-2 1 item').once
-        console.call
+        console.call(rows: rows, text: 'item')
       end
     end
 
@@ -41,7 +41,7 @@ describe WebserverLogParser::Presenter::Console do
 
       it 'prints pluralized text' do
         expect($stdout).to receive(:puts).with('test-route 2 items').once
-        console.call
+        console.call(rows: rows, text: 'item')
       end
     end
   end

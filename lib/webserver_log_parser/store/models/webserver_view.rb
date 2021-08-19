@@ -13,6 +13,12 @@ module WebserverLogParser
             end
           end
 
+          def average_pages_views
+            group(:route).select do |row|
+              [:route, (row.count(:ip) / row.count(:ip).distinct.cast(Float)).as(:count)]
+            end
+          end
+
           def order_by_most_views
             reverse_order(:count)
           end

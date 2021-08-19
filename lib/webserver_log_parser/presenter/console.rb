@@ -1,12 +1,7 @@
 module WebserverLogParser
   module Presenter
     class Console
-      def initialize(rows:, text:)
-        self.rows = rows
-        self.text = text
-      end
-
-      def call
+      def call(rows:, text:)
         rows.each do |row|
           puts [row[:route], row[:count], pluralize(text, count: row[:count])].join(' ')
         end

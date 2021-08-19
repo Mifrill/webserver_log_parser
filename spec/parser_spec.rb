@@ -6,6 +6,8 @@ describe 'parser' do # rubocop:disable RSpec/DescribeClass
       /help_page/1 1 visit
       /contact 2 unique views
       /help_page/1 1 unique view
+      /contact 1.5 average views
+      /help_page/1 1.0 average view
     INFO
   end
 
