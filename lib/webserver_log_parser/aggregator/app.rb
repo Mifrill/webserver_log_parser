@@ -2,12 +2,10 @@ module WebserverLogParser
   module Aggregator
     class App
       def call(scope)
-        yield(
-          [
-            total_pages_views(scope),
-            unique_pages_views(scope)
-          ]
-        )
+        [
+          total_pages_views(scope),
+          unique_pages_views(scope)
+        ]
       end
 
       private

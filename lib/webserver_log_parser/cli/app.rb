@@ -6,7 +6,7 @@ module WebserverLogParser
       include Validator
 
       def call(argv)
-        yield(validate(argv))
+        validate(argv)
       end
     end
   end

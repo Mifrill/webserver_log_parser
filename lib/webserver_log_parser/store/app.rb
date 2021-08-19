@@ -10,7 +10,7 @@ module WebserverLogParser
       def call(content)
         db.setup
         insert_records(content)
-        yield(db.webserver_view)
+        db.webserver_view
       end
 
       private

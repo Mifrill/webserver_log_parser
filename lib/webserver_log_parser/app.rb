@@ -25,10 +25,10 @@ module WebserverLogParser
     private
 
     def inner_call(argv)
-      cli.call(argv) do |path|
-        source.call(path) do |content|
-          store.call(content) do |scope|
-            aggregator.call(scope) do |data|
+      cli.call(argv).then do |path|
+        source.call(path).then do |content|
+          store.call(content).then do |scope|
+            aggregator.call(scope).then do |data|
               presenter.call(data)
             end
           end

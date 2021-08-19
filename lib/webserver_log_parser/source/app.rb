@@ -8,7 +8,7 @@ module WebserverLogParser
       end
 
       def call(path)
-        yield(source.content(path))
+        source.content(path)
       end
 
       private
