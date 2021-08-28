@@ -8,13 +8,13 @@ require_relative '../../constantize'
 module WebserverLogParser
   module Cli
     module Validator
-      ERRORS = %w[
+      CONDITIONS = %w[
         ArgumentsCount
         EmptyPath
       ].freeze
 
       def validate(argv)
-        ERRORS.each do |condition|
+        CONDITIONS.each do |condition|
           "#{self.class}::Condition::#{condition}".constantize.new(argv).then(&method(:validate!))
         end
       end
