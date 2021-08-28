@@ -2,7 +2,7 @@ module WebserverLogParser
   module Cli
     module Validator
       class ValidTrue
-        def validate!(_error); end
+        def call(_error); end
       end
     end
   end

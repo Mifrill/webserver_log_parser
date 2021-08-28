@@ -15,15 +15,17 @@ module WebserverLogParser
 
       def validate(argv)
         ERRORS.each do |condition|
-          "#{self.class}::Condition::#{condition}".constantize.new(argv).then do |validator|
-            "#{self.class}::Valid#{validator.valid?.to_s.capitalize}".constantize.new.then do |verdict|
-              verdict.validate!(exception_klass(validator))
-            end
-          end
+          "#{self.class}::Condition::#{condition}".constantize.new(argv).then(&method(:validate!))
         end
       end
 
       private
+
+      def validate!(validator)
+        "#{self.class}::Valid#{validator.valid?.to_s.capitalize}".constantize.new.then do |verdict|
+          verdict.call(exception_klass(validator))
+        end
+      end
 
       def exception_klass(validator)
         "WebserverLogParser::Exceptions::Cli#{validator.class.name.split('::').last}Error".constantize
