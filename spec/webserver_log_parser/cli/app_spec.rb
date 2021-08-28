@@ -20,9 +20,9 @@ describe WebserverLogParser::Cli::App do
           %w[test second-argument]
         end
 
-        it 'raises CliArgumentsError' do
+        it 'raises CliArgumentsCountError' do
           expect { |block| cli.call(argv, &block) }
-            .to raise_exception(WebserverLogParser::Exceptions::CliArgumentsError,
+            .to raise_exception(WebserverLogParser::Exceptions::CliArgumentsCountError,
                                 'Cannot proceed with second argument')
         end
       end
@@ -32,9 +32,9 @@ describe WebserverLogParser::Cli::App do
           ['']
         end
 
-        it 'raises CliArgumentsError' do
+        it 'raises CliEmptyPathError' do
           expect { |block| cli.call(argv, &block) }
-            .to raise_exception(WebserverLogParser::Exceptions::EmptyPathError,
+            .to raise_exception(WebserverLogParser::Exceptions::CliEmptyPathError,
                                 'Path to source is empty | should be as first argument')
         end
       end

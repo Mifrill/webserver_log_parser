@@ -17,10 +17,16 @@ module WebserverLogParser
         ERRORS.each do |condition|
           "#{self.class}::Condition::#{condition}".constantize.new(argv).then do |validator|
             "#{self.class}::Valid#{validator.valid?.to_s.capitalize}".constantize.new.then do |verdict|
-              verdict.validate!("WebserverLogParser::Exceptions::#{validator.error_klass}".constantize)
+              verdict.validate!(exception_klass(validator))
             end
           end
         end
+      end
+
+      private
+
+      def exception_klass(validator)
+        "WebserverLogParser::Exceptions::Cli#{validator.class.name.split('::').last}Error".constantize
       end
     end
   end

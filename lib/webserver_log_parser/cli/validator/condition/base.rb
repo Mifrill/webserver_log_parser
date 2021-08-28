@@ -11,10 +11,6 @@ module WebserverLogParser
             raise NotImplementedError, __method__
           end
 
-          def error_klass
-            raise NotImplementedError, __method__
-          end
-
           private
 
           attr_accessor :argv

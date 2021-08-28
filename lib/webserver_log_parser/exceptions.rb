@@ -2,13 +2,13 @@ require 'pp'
 
 module WebserverLogParser
   module Exceptions
-    class EmptyPathError < StandardError
+    class CliEmptyPathError < StandardError
       def message
         'Path to source is empty | should be as first argument'
       end
     end
 
-    class CliArgumentsError < StandardError
+    class CliArgumentsCountError < StandardError
       def message
         'Cannot proceed with second argument'
       end

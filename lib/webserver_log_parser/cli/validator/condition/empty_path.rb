@@ -8,10 +8,6 @@ module WebserverLogParser
           def valid?
             !argv[0].empty?
           end
-
-          def error_klass
-            'EmptyPathError'
-          end
         end
       end
     end
