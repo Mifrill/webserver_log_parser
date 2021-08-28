@@ -3,9 +3,8 @@ module WebserverLogParser
     module Validator
       module Condition
         class Base
-          def initialize(argv, &block)
+          def initialize(argv)
             self.argv = argv
-            self.validate = block
           end
 
           def valid?
@@ -18,7 +17,7 @@ module WebserverLogParser
 
           private
 
-          attr_accessor :argv, :validate
+          attr_accessor :argv
         end
       end
     end
