@@ -15,18 +15,12 @@ module WebserverLogParser
 
       def validate(argv)
         ERRORS.each do |condition|
-          "#{path}::Condition::#{condition}".constantize.new(argv).then do |validator|
-            "#{path}::Valid#{validator.valid?.to_s.capitalize}".constantize.new.then do |verdict|
+          "#{self.class}::Condition::#{condition}".constantize.new(argv).then do |validator|
+            "#{self.class}::Valid#{validator.valid?.to_s.capitalize}".constantize.new.then do |verdict|
               verdict.validate!("WebserverLogParser::Exceptions::#{validator.error_klass}".constantize)
             end
           end
         end
-      end
-
-      private
-
-      def path
-        'WebserverLogParser::Cli::Validator'
       end
     end
   end
