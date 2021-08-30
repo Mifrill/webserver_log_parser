@@ -6,10 +6,18 @@ module WebserverLogParser
     class App
       include Validator
 
-      def call(argv, converter: Converter.new, &block)
+      def initialize(converter: Converter.new)
+        self.converter = converter
+      end
+
+      def call(argv, &block)
         validate(argv)
         converter.call(argv).then(&block)
       end
+
+      private
+
+      attr_accessor :converter
     end
   end
 end
