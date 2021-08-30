@@ -1,13 +1,14 @@
 require_relative './validator'
+require_relative './converter'
 
 module WebserverLogParser
   module Cli
     class App
       include Validator
 
-      def call(argv)
+      def call(argv, converter: Converter.new, &block)
         validate(argv)
-        yield(argv[0])
+        converter.call(argv).then(&block)
       end
     end
   end
