@@ -25,7 +25,7 @@ The structure based on logic flow:
 
 ## Run
 
-    ./parser.rb webserver.log
+    ./parser.rb webserver.log en
 
 ## Tests
 
