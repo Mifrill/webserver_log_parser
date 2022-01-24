@@ -6,7 +6,7 @@ describe WebserverLogParser::Cli::App do
   end
 
   let(:argv) do
-    ['test']
+    %w[test en]
   end
 
   describe '#call' do
@@ -29,10 +29,22 @@ describe WebserverLogParser::Cli::App do
 
       context 'when 2 arguments' do
         let(:argv) do
-          %w[test second-argument]
+          %w[test en]
         end
 
         it { expect { |block| cli.call(argv, &block) }.to avoid_exception }
+
+        context 'when invalid locale' do
+          let(:argv) do
+            %w[test it]
+          end
+
+          it 'raises CliLocaleError' do
+            expect { |block| cli.call(argv, &block) }
+              .to raise_exception(WebserverLogParser::Exceptions::CliLocaleError,
+                                  "We are didn't this locale")
+          end
+        end
       end
 
       context 'when argument is empty' do

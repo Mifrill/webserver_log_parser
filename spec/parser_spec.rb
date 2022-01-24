@@ -1,5 +1,5 @@
 describe 'parser' do # rubocop:disable RSpec/DescribeClass
-  let(:command) { system './parser.rb spec/fixtures/webserver.log' }
+  let(:command) { system './parser.rb spec/fixtures/webserver.log en' }
   let(:info) do
     <<~INFO
       /contact 3 visits
