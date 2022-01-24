@@ -51,7 +51,7 @@ describe WebserverLogParser::Cli::App do
           cli.call(argv) do
             fake_block
           end
-          expect(WebserverLogParser::Cli::Settings.locale).to eq('en')
+          expect(WebserverLogParser::Settings.locale).to eq('en')
         end
 
         it 'rewrites locale' do
@@ -59,7 +59,7 @@ describe WebserverLogParser::Cli::App do
           cli.call(%w[test es]) do
             fake_block
           end
-          expect(WebserverLogParser::Cli::Settings.locale).to eq('es')
+          expect(WebserverLogParser::Settings.locale).to eq('es')
         end
       end
 

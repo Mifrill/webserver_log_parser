@@ -1,6 +1,6 @@
 require_relative './validator'
 require_relative './converter'
-require_relative './settings'
+require_relative '../settings'
 
 module WebserverLogParser
   module Cli

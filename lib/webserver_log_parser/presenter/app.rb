@@ -1,5 +1,5 @@
 require_relative './console'
-require_relative '../cli/settings'
+require_relative '../settings'
 
 module WebserverLogParser
   module Presenter
@@ -19,7 +19,7 @@ module WebserverLogParser
 
       def initialize(
         output: WebserverLogParser::Presenter::Console.new,
-        settings: WebserverLogParser::Cli::Settings
+        settings: WebserverLogParser::Settings
       )
         self.output = output
         self.settings = settings
