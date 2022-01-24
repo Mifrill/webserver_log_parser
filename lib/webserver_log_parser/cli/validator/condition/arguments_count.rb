@@ -6,7 +6,7 @@ module WebserverLogParser
       module Condition
         class ArgumentsCount < Base
           def valid?
-            argv.size == 1
+            argv.size == 2
           end
         end
       end

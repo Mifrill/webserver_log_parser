@@ -10,7 +10,7 @@ module WebserverLogParser
 
     class CliArgumentsCountError < StandardError
       def message
-        'Cannot proceed with second argument'
+        'Cannot proceed with third argument'
       end
     end
 
