@@ -45,6 +45,22 @@ describe WebserverLogParser::Cli::App do
                                   "We are didn't this locale")
           end
         end
+
+        it 'stores settings' do
+          fake_block = -> {}
+          cli.call(argv) do
+            fake_block
+          end
+          expect(WebserverLogParser::Cli::Settings.locale).to eq('en')
+        end
+
+        it 'rewrites locale' do
+          fake_block = -> {}
+          cli.call(%w[test es]) do
+            fake_block
+          end
+          expect(WebserverLogParser::Cli::Settings.locale).to eq('es')
+        end
       end
 
       context 'when argument is empty' do
