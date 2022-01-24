@@ -4,9 +4,11 @@ module WebserverLogParser
   module Cli
     module Validator
       module Condition
-        class ArgumentsCount < Base
+        class Locale < Base
+          LOCALES = %w[en es].freeze
+
           def valid?
-            argv.size == 2
+            LOCALES.include?(argv[1])
           end
         end
       end

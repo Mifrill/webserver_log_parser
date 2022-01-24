@@ -8,9 +8,15 @@ module WebserverLogParser
       end
     end
 
+    class CliLocaleError < StandardError
+      def message
+        "We are didn't this locale"
+      end
+    end
+
     class CliArgumentsCountError < StandardError
       def message
-        'Cannot proceed with second argument'
+        'Cannot proceed with third argument'
       end
     end
 

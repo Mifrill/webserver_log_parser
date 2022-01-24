@@ -3,6 +3,7 @@ require_relative './validator/valid_true'
 require_relative './validator/valid_false'
 require_relative './validator/condition/arguments_count'
 require_relative './validator/condition/empty_path'
+require_relative './validator/condition/locale'
 require_relative '../../constantize'
 
 module WebserverLogParser
@@ -11,6 +12,7 @@ module WebserverLogParser
       CONDITIONS = %w[
         ArgumentsCount
         EmptyPath
+        Locale
       ].freeze
 
       def validate(argv)
