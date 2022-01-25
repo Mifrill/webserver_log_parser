@@ -12,9 +12,7 @@ module WebserverLogParser
       private
 
       def settings
-        @settings ||= {
-          locale: 'en'
-        }
+        @settings ||= {}
       end
     end
   end

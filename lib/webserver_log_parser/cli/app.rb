@@ -7,7 +7,7 @@ module WebserverLogParser
     class App
       include Validator
 
-      def initialize(converter: Converter.new, settings: Settings)
+      def initialize(converter: Converter.new, settings: WebserverLogParser::Settings)
         self.converter = converter
         self.settings = settings
       end
@@ -23,7 +23,7 @@ module WebserverLogParser
       attr_accessor :converter, :settings
 
       def setup_locale(argv)
-        Settings.locale = argv[1]
+        settings.locale = argv[1]
       end
     end
   end
