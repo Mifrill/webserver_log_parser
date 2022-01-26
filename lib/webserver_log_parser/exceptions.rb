@@ -10,7 +10,7 @@ module WebserverLogParser
 
     class CliLocaleError < StandardError
       def message
-        "We are didn't this locale"
+        "We are didn't support this locale"
       end
     end
 

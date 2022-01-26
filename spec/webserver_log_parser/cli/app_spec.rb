@@ -42,23 +42,17 @@ describe WebserverLogParser::Cli::App do
           it 'raises CliLocaleError' do
             expect { |block| cli.call(argv, &block) }
               .to raise_exception(WebserverLogParser::Exceptions::CliLocaleError,
-                                  "We are didn't this locale")
+                                  "We are didn't support this locale")
           end
         end
 
         it 'stores settings' do
-          fake_block = -> {}
-          cli.call(argv) do
-            fake_block
-          end
+          cli.call(argv)
           expect(WebserverLogParser::Settings.locale).to eq('en')
         end
 
         it 'rewrites locale' do
-          fake_block = -> {}
-          cli.call(%w[test es]) do
-            fake_block
-          end
+          cli.call(%w[test es])
           expect(WebserverLogParser::Settings.locale).to eq('es')
         end
       end

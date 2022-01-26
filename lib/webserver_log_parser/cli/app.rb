@@ -7,7 +7,10 @@ module WebserverLogParser
     class App
       include Validator
 
-      def initialize(converter: Converter.new, settings: WebserverLogParser::Settings)
+      def initialize(
+        converter: Converter.new,
+        settings: WebserverLogParser::Settings
+      )
         self.converter = converter
         self.settings = settings
       end
